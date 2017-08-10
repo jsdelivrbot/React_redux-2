@@ -59,7 +59,7 @@ class Quote extends React.Component {
 					Tweet
 					</a>
 				</div>
-        <Newquote foo="bar" />
+        <Newquote onClick={this.handleClick} foo="bar" />
       </div>
 		);
 	}
