@@ -2,8 +2,9 @@ import React from 'react';
 
 class Newquote extends React.Component {
 	render(){
+		console.log(this.props.onClick);
 		return(
-			<button className="new-quote">
+			<button onClick={this.props.handleClick} className="new-quote">
 				more
 			</button>
 		)

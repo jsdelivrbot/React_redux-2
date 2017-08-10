@@ -46,18 +46,20 @@ class Quote extends React.Component {
   // Helper function to handle click event.
   handleClick() {
     this.fetchQuote();
+    console.log('lalala');
   }
 
 	render(){
+    console.log(this.props.foo);
 		return (
 			<div className="quote-content">
-        <h2>{this.state.quote}</h2>
-        <div className="tweet-btn">
+        <h2>{this.state.quote}</h2> 
+        <div className="tweet-btn"> 
 					<a href={'https://twitter.com/intent/tweet?text=' + this.state.quote} target="_blank">
 					Tweet
 					</a>
 				</div>
-        <Newquote onClick={this.handleClick}/>
+        <Newquote foo="bar" />
       </div>
 		);
 	}
