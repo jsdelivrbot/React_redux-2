@@ -57,7 +57,7 @@ handleClick() {
           <h2>{this.state.quote}</h2> 
         </div>
         <div className="buttons">
-          <Tweet />
+          <Tweet quoteContent={this.state.quote}/>
           <Newquote onClick={this.handleClick} />
         </div>
       </div>

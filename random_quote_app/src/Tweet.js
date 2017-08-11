@@ -4,7 +4,7 @@ class Tweet extends React.Component {
   render(){
     return(
       <div className="btn btn-default btn-item"> 
-        <a href={'https://twitter.com/intent/tweet?text=' + this.props.quote} target="_blank">
+        <a href={'https://twitter.com/intent/tweet?text=' + this.props.quoteContent} target="_blank">
         Tweet
         </a>
       </div>
