@@ -7,6 +7,9 @@ class App extends Component {
     return (
       <div className="App">
         <Quote />
+        <div className='container1'></div>
+		<div className='container2'></div>
+		<div className='container3'></div>
       </div>
     );
   }

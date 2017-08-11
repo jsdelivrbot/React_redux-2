@@ -1,5 +1,6 @@
 import React from 'react';
 import Newquote from './Newquote.js';
+import Tweet from './Tweet.js';
 
 
 var myHeaders = new Headers();//create new headers.
@@ -38,6 +39,7 @@ fetchQuote() {
   })
 }
 
+
 // Mount the component.
 componentDidMount(){
   this.fetchQuote();
@@ -46,23 +48,21 @@ componentDidMount(){
 // Helper function to handle click event.
 handleClick() {
   this.fetchQuote();
-  console.log('lalala');
 }
 
-render(){
-  console.log(this.props.foo);
-  return (
-    <div className="quote-content">
-      <h2>{this.state.quote}</h2> 
-      <div className="tweet-btn"> 
-        <a href={'https://twitter.com/intent/tweet?text=' + this.state.quote} target="_blank">
-        Tweet
-        </a>
+  render(){
+    return (
+      <div className="quote-container">
+        <div className="quote-content">
+          <h2>{this.state.quote}</h2> 
+        </div>
+        <div className="buttons">
+          <Tweet />
+          <Newquote onClick={this.handleClick} />
+        </div>
       </div>
-      <Newquote onClick={this.handleClick} foo="bar" />
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default Quote;
