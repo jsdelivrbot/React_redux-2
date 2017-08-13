@@ -13,6 +13,7 @@
 .quote-content {
   width:80%;
   text-align: center;
+  transition: width 1s linear;
 }
 
 

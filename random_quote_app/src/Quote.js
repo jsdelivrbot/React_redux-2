@@ -20,7 +20,10 @@ var myRequest = new Request('https://icanhazdadjoke.com/', myInit);
 class Quote extends React.Component {
 constructor(props) {
   super(props);
-  this.state = {quote: 'Hello!'};
+  this.state = {
+    quote: 'Hello!',
+    width: 'A'
+  };
   // Bind "this" to handleClick event.
   this.handleClick = this.handleClick.bind(this);
 }
@@ -45,9 +48,27 @@ componentDidMount(){
   this.fetchQuote();
 }
 
+changeStyle(){
+  var quoteElement = document.getElementsByClassName('quote-content')[0];
+  if(this.state.width === 'A'){
+    quoteElement.style.width = '500px';
+    console.log('sm');
+    this.setState({
+      width: 'B'
+    });
+  } else {
+    console.log('baddddd');
+    quoteElement.style.width = '800px';
+    this.setState({
+      width: 'A'
+    });
+  }
+}
+
 // Helper function to handle click event.
 handleClick() {
   this.fetchQuote();
+  this.changeStyle();
 }
 
   render(){
