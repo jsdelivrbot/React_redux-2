@@ -53,12 +53,13 @@ class SearchBar extends Component {
     }
 
     handleSubmit(event) {
-      console.log('A name was submitted: ' + this.state.term);
-      this.fetchData();
-      event.preventDefault();
       if(!this.state.term){
         return
       }
+      console.log('A name was submitted: ' + this.state.term);
+      this.fetchData();
+      event.preventDefault();
+
     }
 
     render(){
