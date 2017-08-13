@@ -15,7 +15,7 @@ class SearchBar extends Component {
 
     //fetch data from API.
     fetchData(){
-      const t = this;
+      // const t = this;
       
       let myHeaders = new Headers();
       myHeaders.append("Accept", "application/json");//customize header.
@@ -26,7 +26,7 @@ class SearchBar extends Component {
         mode: 'cors'
       };
 
-      var myURL = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=5&srsearch=${this.state.value}`;
+      var myURL = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=5&srsearch=${this.state.term}`;
 
       let myRequest = new Request(myURL, myInit)
       console.log(myURL);
@@ -41,9 +41,6 @@ class SearchBar extends Component {
         var searchResult = results.map((result) => {
           return result.snippet;
         })
-        t.setState({
-          term: ''
-        })
       })
     }
 
@@ -55,7 +52,7 @@ class SearchBar extends Component {
     }
 
     handleSubmit(event) {
-      console.log('A name was submitted: ' + this.state.value);
+      console.log('A name was submitted: ' + this.state.term);
       event.preventDefault();
     }
 
@@ -69,7 +66,7 @@ class SearchBar extends Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               What are you looking for? <br />
-              <input type="text" onChange={this.handleChange} />
+              <input type="text" onSubmit={this.handleSubmit} />
             </label>
             <br />
             <input type="submit" value="Submit" />
