@@ -4,7 +4,7 @@ class SearchBar extends Component {
     constructor(props){
       super(props);
       this.state = {
-        term: 'moon'
+        term: ''
       };
 
       this.handleChange = this.handleChange.bind(this);
@@ -56,11 +56,10 @@ class SearchBar extends Component {
       console.log('A name was submitted: ' + this.state.term);
       this.fetchData();
       event.preventDefault();
+      if(!this.state.term){
+        return
+      }
     }
-
-    // componentDidMount(){
-    //   this.fetchData();
-    // }
 
     render(){
       return(
