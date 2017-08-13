@@ -4,7 +4,7 @@ class SearchBar extends Component {
     constructor(props){
       super(props);
       this.state = {
-        value: 'moon'
+        term: 'moon'
       };
 
       this.handleChange = this.handleChange.bind(this);
@@ -42,7 +42,7 @@ class SearchBar extends Component {
           return result.snippet;
         })
         t.setState({
-          value: ''
+          term: ''
         })
       })
     }
