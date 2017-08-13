@@ -46,19 +46,21 @@ class SearchBar extends Component {
 
 
     handleChange(event) {
+      console.log(event);
       this.setState({
-        value: event.target.value
+        term: event.target.value
       });
     }
 
     handleSubmit(event) {
       console.log('A name was submitted: ' + this.state.term);
+      this.fetchData();
       event.preventDefault();
     }
 
-    componentDidMount(){
-      this.fetchData();
-    }
+    // componentDidMount(){
+    //   this.fetchData();
+    // }
 
     render(){
       return(
@@ -66,7 +68,7 @@ class SearchBar extends Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               What are you looking for? <br />
-              <input type="text" onSubmit={this.handleSubmit} />
+              <input type="text" value={this.state.term} onChange={this.handleChange} />
             </label>
             <br />
             <input type="submit" value="Submit" />
