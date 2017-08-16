@@ -14,7 +14,7 @@ var myHeaders = new Headers();//create new headers.
 	var myInit = {
 	      method: 'GET',
 	      headers: myHeaders,
-	      mode: 'cors',
+	      mode: 'no-cors',
 	      cache: 'default'
 	    };
 
@@ -31,13 +31,11 @@ class App extends Component {
 		this.getListing = this.getListing.bind(this);
 	}
 
-
 	
 	getListing(){
 		var t = this;
 		fetch(myRequest)
 		.then((response) => {
-			console.log(response);
 			return response.json();
 		})
 		.then((obj) => {
@@ -45,6 +43,10 @@ class App extends Component {
 				listings: obj.results[0]
 			})
 		})
+	}
+
+	componentDidMount(){
+  		this.getListing();
 	}
 
 	handleClick(){
@@ -56,11 +58,11 @@ class App extends Component {
 			<button onClick={this.handleClick}>
 				click me
 			</button>
+			<div>
+				{this.state.listings}
+			</div>
 		);
 	}
 }
-
-// Take this component's generated HTML and put it 
-// on the page ( in the DOM)
 
 ReactDOM.render(<App />, document.querySelector('.container'));
